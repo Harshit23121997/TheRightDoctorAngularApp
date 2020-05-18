@@ -1,1 +1,54 @@
-<p>home works!</p>
+<mat-toolbar>Persons Database <mat-icon matTooltip="Add new person" (click)="addPerson()" [ngStyle]="{'color':'orange','cursor':'pointer'}">add_circle</mat-icon></mat-toolbar>
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by id, name or contact_no">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.first_name}} </td>
+      </ng-container>
+  
+      <!-- Contact Column -->
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.contact_no}} </td>
+      </ng-container>
+  
+      <!-- gender Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+        <td mat-cell *matCellDef="let row" > {{gen[row.gender]}} </td>
+      </ng-container>
+
+      <!-- more Column -->
+      <ng-container matColumnDef="more">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> More Actions </th>
+        <td mat-cell *matCellDef="let row" >
+          <mat-icon matTooltip="Edit" (click)="editPerson(row)" [ngStyle]="{'color':'blue','cursor':'pointer'}">edit</mat-icon>
+          <mat-icon matTooltip="Delete" (click)="deletePerson(row.id)" [ngStyle]="{'color':'red','cursor':'pointer'}">delete</mat-icon> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  
+  <!-- Copyright 2019 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

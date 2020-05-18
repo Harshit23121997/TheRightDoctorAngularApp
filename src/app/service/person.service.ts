@@ -15,7 +15,7 @@ export class PersonService {
   }
   status:any
   addPerson(data){
-    alert("here")
+    //alert("here")
     this.http.post("http://localhost:2000/person",data).subscribe(
       data=>{
         this.status=data
@@ -35,7 +35,7 @@ export class PersonService {
   //EditPerson Service
   editPerson(data,id){
 
-    alert("here")
+    //alert("here")
     let url="http://localhost:2000/person/"+id
     this.http.put(url,data).subscribe(
       data=>{
@@ -56,7 +56,7 @@ export class PersonService {
 
   //Delete Person Service
   deletePerson(id){
-    alert("here")
+    //alert("here")
     let url="http://localhost:2000/person/"+id
     this.http.delete(url).subscribe(
       data=>{

@@ -37,12 +37,12 @@ export class EditPersonComponent implements OnInit {
   onSubmit() {
     if (this.details) {
       this.editForm.value.gender = parseInt(this.editForm.value.gender)
-      alert("Edit")
+      //alert("Edit")
       this.personService.editPerson(this.editForm.value,this.details.id)
     }
     else {
       this.editForm.value.gender = parseInt(this.editForm.value.gender);
-      alert("add")
+      //alert("add")
       this.personService.addPerson(this.editForm.value);
     }
   }

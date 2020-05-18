@@ -13,6 +13,7 @@ export class PageNotFoundComponent implements OnInit {
   ngOnInit(): void {
     alert("This page is not available so you will redirected to the main page ")
     this.router.navigate([''])
+    
   }
 
 }
